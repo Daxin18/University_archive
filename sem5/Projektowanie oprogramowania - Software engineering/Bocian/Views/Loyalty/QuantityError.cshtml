@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Błąd";
+}
+
+<div class="outline">
+    <div class="row">
+        <h1 class="main-message">
+            @ViewBag.Message
+        </h1>
+    </div>
+    <div class="row">
+        <p class="prompt">
+            Chcesz spróbować ponownie?
+        </p>
+    </div>
+    <div class="row">
+        <table>
+            <tr>
+                <td>
+                    <div class="button-test move-div-left">
+                        <a type="button" asp-controller="Loyalty" asp-action="GoBack">
+                            Nie
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <div class="button-test move-div-right">
+                        <a type="button" asp-controller="Loyalty" asp-action="AddToCart" asp-route-loyaltyId="@ViewBag.LoyaltyId">
+                            Tak
+                        </a>
+                    </divc>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

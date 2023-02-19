@@ -1,0 +1,25 @@
+﻿@model AccountDetailsVm
+@{
+    ViewData["Title"] = "Konto";
+}
+
+<table>
+    <tbody>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Email)</th>
+            <td>@Html.DisplayFor(m => m.Email)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.FullName)</th>
+            <td>@Html.DisplayFor(m => m.FullName)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.TranslatedRoleName)</th>
+            <td>@Html.DisplayFor(m => m.TranslatedRoleName)</td>
+        </tr>
+    </tbody>
+</table>
+
+<form asp-action="Logout">
+    <input class="button button-danger" type="submit" value="Wyloguj się" />
+</form>

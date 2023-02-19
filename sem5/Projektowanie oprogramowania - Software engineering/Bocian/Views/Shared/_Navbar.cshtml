@@ -1,0 +1,37 @@
+﻿<nav>
+	<div >
+		<div class ="inline">
+			<a class="logo" asp-controller="Home" asp-action="Index">
+				@* RPS/12 *@
+				<img width="48" height="48" alt="Logo" src="~/static/icons/stork.svg"/>
+				eBocian
+			</a>
+		</div>
+		
+		<div class="inline nav-buttons">
+			@if (User.IsInRole(Roles.Manager))
+			{
+				<a class="nav-button" asp-controller="ManagerOrder" asp-action="Index">Zamówienia</a>
+				<a class="nav-button" asp-controller="ManagerProduct" asp-action="Index">Oferta</a>
+			}
+		</div>
+		
+	</div>
+	
+	@if (User.IsLoggedIn())
+	{
+		<a class="account" asp-controller="Account" asp-action="Details">
+			<img width="36" height="36" alt="Account" src="~/static/icons/account.svg"/>
+			<div class="account-details">
+				<div>@User.FullName()</div>
+				<div class="role">
+					@User.TranslatedRoleName()
+				</div>
+			</div>
+		</a>
+	}
+	else
+	{
+		<a class="log-in" asp-controller="Account" asp-action="Login">Zaloguj się</a>
+	}
+</nav>

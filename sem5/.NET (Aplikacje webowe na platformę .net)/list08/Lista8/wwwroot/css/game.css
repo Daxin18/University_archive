@@ -1,0 +1,57 @@
+﻿.counter {
+    color:darkgrey;
+    font-weight: 100;
+}
+
+.set-error {
+    color: red;
+    font-weight: 800;
+    text-decoration: underline;
+}
+.set {
+    color:green;
+    font-weight: 500;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.draw-error {
+    color: red;
+    font-weight: 800;
+    text-decoration: underline;
+}
+.draw {
+    color:green;
+    font-weight: 500;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.guess-not-drawn-error {
+    color: red;
+    font-weight: 800;
+    text-decoration: underline;
+}
+.guess-range-error {
+    color: red;
+    font-weight: 800;
+    text-decoration: underline;
+}
+.guess-lower {
+    color: yellow;
+    font-weight: 600;
+}
+.guess-higher {
+    color: cyan;
+    font-weight: 600;
+}
+.guess-correct {
+    color:lawngreen;
+    font-weight: 500;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.center {
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}

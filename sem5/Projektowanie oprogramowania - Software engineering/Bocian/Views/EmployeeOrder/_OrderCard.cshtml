@@ -1,0 +1,28 @@
+﻿@model EmployeeOrderIndexOrderVm
+
+<article class="card">
+    <header>
+        <h3>Zamówienie nr @Html.DisplayFor(m => m.Id)</h3>
+        <h4>@Html.DisplayNameFor(m => m.Status): <span class="status" data-status="@Model.Status">@Html.DisplayFor(m => m.Status)</span></h4>
+    </header>
+    <div class="row">
+        <div class="left-column">
+            <table>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.AddressSummary):</th>
+                    <td>
+                        <div>@Html.DisplayFor(m => m.AddressSummary)</div>
+                        @if (Model.ClientPhoneNumber is not null)
+                        {
+                            <div>tel. @Html.DisplayFor(m => m.ClientPhoneNumber)</div>
+                        }
+                    </td>
+                </tr>
+            </table>
+            <div class="summary">@Html.DisplayFor(m => m.CartProductCount) produktów, @Html.DisplayFor(m => m.CartTotalPrice)</div>
+        </div>
+        <div class="right-column">
+            <a class="button" asp-action="Details" asp-route-id="@Model.Id">Zobacz szczegóły...</a>
+        </div>
+    </div>
+</article>

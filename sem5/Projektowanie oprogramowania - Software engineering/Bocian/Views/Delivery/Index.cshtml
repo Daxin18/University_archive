@@ -1,0 +1,18 @@
+﻿@model DeliveryIndexVm
+@{
+    ViewData["Title"] = "Lista dostaw";
+}
+
+<div class="container">
+    <h1>Moje zamówienia</h1>
+    <h2>Dostarczane</h2>
+    @foreach (var order in Model.InDeliveryOrders)
+    {
+        <partial name="_DeliveryCard" for="@order" />
+    }
+    <h2>Spakowane</h2>
+    @foreach (var order in Model.PackedOrders)
+    {
+        <partial name="_DeliveryCard" for="@order" />
+    }
+</div>

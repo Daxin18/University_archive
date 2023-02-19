@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Bocian.ViewModels.ShopIndexVm>
+@{
+	ViewData["Title"] = "Wybór sklepu";
+}
+
+Wybór sklepu do zamówień:
+<table class="table">
+	<thead>
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Id)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.NumberOfEmployees)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Address.Street)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.PhoneNumber)
+		</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	@foreach (var item in Model) {
+		<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Id)
+				</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.NumberOfEmployees)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Address.Street)
+			</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.PhoneNumber)
+				</td>
+			<td>
+					<a class="button" asp-action="ShopForOrders" asp-route-shopId="@item.Id">Wybierz</a>
+			</td>
+		</tr>
+	}
+	</tbody>
+</table>

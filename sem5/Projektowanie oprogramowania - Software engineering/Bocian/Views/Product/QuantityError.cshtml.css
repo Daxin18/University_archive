@@ -1,0 +1,54 @@
+﻿.outline {
+	background-color: var(--slate-200);
+	border-radius: 1rem;
+	max-width: 60%;
+	width: 60%;
+	margin: 1.5rem auto;
+	padding: 2rem;
+	text-align: center;
+	margin-top: 60px;
+}
+
+.move-div-left {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	right: 100px;
+}
+
+.move-div-right {
+	flex: 2;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	left: 100px;
+}
+
+.row {
+	display: flex;
+	text-align: center;
+	justify-content: center;
+}
+
+.main-message {
+	font-weight: bold;
+	font-size: 48px;
+}
+
+.prompt {
+	font-size: 32px;
+}
+
+.button-test {
+	display: block;
+	background-color: var(--slate-300);
+	text-align: center;
+	width: 270px;
+	height: 60px;
+	border-radius: 0.5rem;
+	line-height: 50px;
+	margin: 10px;
+	padding: 5px;
+}
+

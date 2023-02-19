@@ -1,0 +1,64 @@
+﻿nav {
+    background: var(--sky-500); /* RPS/04 */
+    color: var(--white);
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+::deep .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+::deep .account {
+    display: flex;
+    gap: 1rem;
+}
+
+::deep .log-in {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.account-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.role {
+    font-size: 0.625rem;
+}
+
+.inline {
+    float: left;
+}
+
+.nav-buttons {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 25px;
+}
+
+/* TODO: better styling */
+::deep .nav-button {
+    color: var(--white);
+    float: left;
+    margin-right: 15px;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    font-size: 20px;
+}
+
+::deep .nav-button:hover {
+    background: var(--sky-400)
+}

@@ -1,0 +1,105 @@
+﻿@model ProductIndexVm
+@{
+    ViewData["Title"] = "Produkty";
+}
+<div class="title">
+    <h1 class="title">Nasze produkty</h1>
+</div>
+
+<div class="col-md-3">
+    <form>
+        <div class="form-group">
+            <label class="control-label">Kategoria:</label>
+            <select asp-for="SelectedCategoryId" class="form-control" asp-items="Model.Categories" onchange="this.form.submit()">
+                <option selected value="-1">Wszystkie produkty</option>
+            </select>
+        </div>
+    </form>
+</div>
+<div class="products">
+@foreach((var item, var isInFavorites, var Image, var Category) in Model.Products){
+    <article class="outline">
+        <div class="row">
+            <div class="left-column">
+                <table>
+                    <tr>
+                        <td rowspan="3" class="image-wrapper">
+                            <img class="image-miniature" src="@Image.Url" />
+                        </td>
+                        <th>
+                            @item.Name
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Category.Name
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @item.Price.ToString()zł
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="right-column">
+                <table>
+                    <tr>
+                        <td rowspan="2" class="image-wrapper">
+                            @if(isInFavorites)
+                            {
+                                <img src="~/static/img/favorite.png">
+                            }
+                        </td>
+                        <td>
+                            <div class="button-test">
+                                <a type="button" asp-controller="Product" asp-action="AddToCart" asp-route-productId="@item.Id">
+                                    <div class="button-icon">
+                                        <img height="50" src="~/static/img/cart.png" />
+                                    </div>
+                                    <div class="button-text">
+                                        Dodaj do koszyka
+                                    </div>
+                                </a>
+                                </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @if(isInFavorites)
+                            {
+                                <div class="button-test">
+                                    <a type="button" asp-controller="Product" asp-action="RemoveFromFavorites" asp-route-productId="@item.Id">
+                                        <div class="button-icon">
+                                            <img height="50" src="~/static/img/fav_remove.png" />
+                                        </div>
+                                        <div class="button-text">
+                                            Usuń z ulubionych
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="button-test">
+                                <a type="button" asp-controller="Product" asp-action="AddToFavorites" asp-route-productId="@item.Id">
+                                    <div class="button-icon">
+                                        <img height="50" src="~/static/img/fav_add.png" />
+                                    </div>
+                                    <div class="button-text">
+                                        Dodaj do ulubionych
+                                    </div>
+                                </a>
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </article>
+}
+</div>
+
+@*===================== Scripts =====================*@
+

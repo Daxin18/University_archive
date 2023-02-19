@@ -1,0 +1,86 @@
+﻿@using Bocian.Services
+@model IEnumerable<Bocian.ViewModels.ManagerProductVm>
+@inject IShopService ShopService
+@{
+	ViewData["Title"] = "Lista produktów";
+	var shop = ShopService.ShopIndexVm(ViewBag.ShopId);
+}
+
+Lista produktów w sklepie @shop.Id
+
+<a class="button" asp-action="Index" asp-route-shopId="@ViewBag.ShopId">Dostępne</a>
+<a class="button" asp-action="NoneLeft" asp-route-shopId="@ViewBag.ShopId">Niedostępne</a>
+<a class="button" asp-action="Create" asp-route-shopId="@ViewBag.ShopId">Dodaj</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OnlyForAdults)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shopId)
+            </th>
+	        <th>
+		        @Html.DisplayNameFor(model => model.Quantity)
+	        </th>
+	        <th>
+		        @Html.DisplayNameFor(model => model.CategoryId)
+	        </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OnlyForAdults)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Weight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImageUrl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.shopId)
+                </td>
+	            <td>
+		            @Html.DisplayFor(modelItem => item.Quantity)
+	            </td>
+	            <td>
+		            @Html.DisplayFor(modelItem => item.CategoryId)
+	            </td>
+	            <td>
+		            <a class="button" asp-action="Edit" asp-route-shopId="@ViewBag.ShopId" asp-route-productId="@item.Id">Edytuj</a>
+		            <a class="button" asp-action="Delete" asp-route-shopId="@ViewBag.ShopId" asp-route-productId="@item.Id">Usun</a>
+	            </td>
+            </tr>
+        }
+    </tbody>
+</table>

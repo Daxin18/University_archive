@@ -1,0 +1,32 @@
+﻿@model DeliveryIndexOrderVm
+
+<article class="card">
+    <div class="left-column">
+        <h3>Zamówienie nr @Html.DisplayFor(m => m.Id)</h3>
+        <table>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.EmployeeShopAddressSummary):</th>
+                <td>@Html.DisplayFor(m => m.EmployeeShopAddressSummary)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.AddressSummary):</th>
+                <td>
+                    <div>@Html.DisplayFor(m => m.AddressSummary)</div>
+                    @if (Model.ClientPhoneNumber is not null)
+                    {
+                        <div>tel. @Html.DisplayFor(m => m.ClientPhoneNumber)</div>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.CartTotalWeight):</th>
+                <td>@Html.DisplayFor(m => m.CartTotalWeight)</td>
+            </tr>
+        </table>
+    </div>
+    <div class="right-column">
+        <h4>@Html.DisplayNameFor(m => m.Status): <span class="status" data-status="@Model.Status">@Html.DisplayFor(m => m.Status)</span></h4>
+        <a class="button" asp-action="Details" asp-route-id="@Model.Id">Zobacz szczegóły...</a>
+    </div>
+    <img src="~/static/img/minimap.png" alt="Mapa" />
+</article>

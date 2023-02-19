@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Strona główna";
+}
+
+<div class="bg">
+    <h1>eBocian</h1>
+    <p>Zjadamy żabki!</p>
+    @if (User.IsInRole(Roles.Client))
+    {
+        <a class="button" asp-controller="Product" asp-action="Index">Przeglądaj produkty...</a>
+        <a class="button" asp-controller="Loyalty" asp-action="Index">Przeglądaj promocje...</a>
+    }
+    else if (User.IsInRole(Roles.Courier))
+    {
+        <a class="button" asp-controller="Delivery" asp-action="Index">Przeglądaj dostawy...</a>
+    }
+    else if (User.IsInRole(Roles.Manager))
+    {
+	    <a class="button" asp-controller="ManagerOrder" asp-action="Index">Przeglądaj zamówienia...</a>
+	    <a class="button" asp-controller="ManagerProduct" asp-action="Index">Przeglądaj ofertę sklepu...</a>
+    }
+    else if (User.IsInRole(Roles.Employee))
+    {
+        <a class="button" asp-controller="EmployeeOrder" asp-action="Index">Przeglądaj zamówienia...</a>
+    }
+    else
+    {
+        <a class="button" asp-controller="Account" asp-action="Login">Zaloguj się...</a>
+    }
+</div>

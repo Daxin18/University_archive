@@ -1,0 +1,37 @@
+﻿footer {
+    background: var(--sky-900); /* RPS/05 */
+    color: var(--white);
+    padding: 4rem;
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    font-size: 3.5rem;
+    font-weight: bold;
+    gap: 0.5rem;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+nav h2 {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+nav section ::deep a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    margin-bottom: 2rem;
+    color: var(--sky-500);
+}

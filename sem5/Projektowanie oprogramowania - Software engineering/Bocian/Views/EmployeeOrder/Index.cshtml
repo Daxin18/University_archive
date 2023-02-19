@@ -1,0 +1,18 @@
+﻿@model EmployeeOrderIndexVm
+@{
+    ViewData["Title"] = "Lista zamówień";
+}
+
+<div class="container">
+    <h1>Moje zamówienia</h1>
+    <h2>Zatwierdzone</h2>
+    @foreach (var order in Model.ConfirmedOrders)
+    {
+        <partial name="_OrderCard" for="@order" />
+    }
+    <h2>Oczekujące</h2>
+    @foreach (var order in Model.PendingOrders)
+    {
+        <partial name="_OrderCard" for="@order" />
+    }
+</div>

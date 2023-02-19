@@ -1,0 +1,36 @@
+﻿.wrapper {
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+section {
+    padding: 0.5rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+::deep .field-validation-error, ::deep .validation-summary-errors {
+    padding: 0 1rem;
+    font-size: 0.75rem;
+    color: var(--red-500);
+}
+
+::deep input:where([type="email"], [type="password"]) {
+    border: 1px solid var(--sky-900);
+    border-radius: 0.25rem;
+    padding: 0.1rem 0.5rem;
+}
+
+input[type="submit"] {
+    margin: 0 auto;
+    grid-column: span 2;
+}

@@ -1,0 +1,10 @@
+﻿@model int
+@{
+    ViewData["Title"] = Model;
+    Context.Response.StatusCode = Model;
+}
+
+<div>
+    <h1>@Model</h1>
+    <p>Wróć na <a class="link" asp-controller="Home" asp-action="Index">stronę główną</a>.</p>
+</div>

@@ -1,0 +1,63 @@
+﻿@using System.Linq
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model Lista10.Models.Cart
+
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<h1>Cart</h1>
+
+@if(SignInManager.IsSignedIn(User))
+{
+    <a class="@ViewBag.CartArticlePriceClass" asp-action="OrderData"> Złóż zamówienie </a>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.articles.Last().article.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.articles.Last().article.Price)
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Image
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.articles)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.article.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.article.Price)
+                </td>
+                <td>
+                    <a asp-action="RemoveOne" asp-route-id="@item.article.Id"> ◂ </a>
+
+                    @Html.DisplayFor(modelItem => item.quantity)
+
+                    <a asp-action="AddOne" asp-route-id="@item.article.Id"> ▸ </a>
+
+                </td>
+                <td>
+                    <dd class="col-sm-10">
+                        <img src="@(item.article.Image)" asp-append-version="true" width="50" />
+                    </dd>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2 class=@ViewBag.CartMessageClass> There are no items in your cart </h2>
+<h2 class=@ViewBag.CartArticlePriceClass> Total Price: @ViewBag.CartArticlePrice </h2>

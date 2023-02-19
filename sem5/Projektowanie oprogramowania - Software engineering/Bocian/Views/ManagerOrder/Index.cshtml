@@ -1,0 +1,77 @@
+﻿@using Bocian.Services
+@model IEnumerable<Bocian.ViewModels.ManagerOrderVm>
+@inject IShopService ShopService
+@{
+	ViewData["Title"] = "Lista zamówień";
+	var shop = ShopService.ShopIndexVm(ViewBag.ShopId);
+}
+
+Lista zamówień
+Sklep: @shop.Id Telefon: @shop.PhoneNumber
+
+<a class="button" asp-action="Index" asp-route-shopId="@ViewBag.ShopId">Wszystkie</a>
+<a class="button" asp-action="Done" asp-route-shopId="@ViewBag.ShopId">Zrealizowane</a>
+<a class="button" asp-action="InProgress" asp-route-shopId="@ViewBag.ShopId">W trakcie realizacji</a>
+<a class="button" asp-action="Canceled" asp-route-shopId="@ViewBag.ShopId">Anulowane</a>
+
+<table class="table">
+	<thead>
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Id)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Status)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.ClientNumber)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.TotalPrice)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.OrderedAt)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Address.Summary)
+		</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Products.First().Name)
+			</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	@foreach (var item in Model) {
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Id)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Status)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.ClientNumber)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.TotalPrice)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.OrderedAt)
+			</td>
+			<th>
+				@Html.DisplayFor(modelItem => item.Address.Summary)
+			</th>
+			<th>
+				@Html.DisplayFor(modelItem => item.Products.First().Name)
+			</th>
+			@if (item.Status == "Confirmed")
+			{
+				<th>
+					<a class="button" asp-action="Delete" asp-route-shopId="@ViewBag.ShopId" asp-route-orderId="@item.Id">Anuluj!!</a>
+				</th>
+			}
+		</tr>
+	}
+	</tbody>
+</table>

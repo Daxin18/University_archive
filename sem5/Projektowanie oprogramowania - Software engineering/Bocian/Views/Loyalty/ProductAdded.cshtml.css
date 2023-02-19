@@ -1,0 +1,137 @@
+﻿.points {
+	display: flex;
+	color: var(--slate-700);
+	font-weight: 900;
+	font-size: 40px;
+	padding-left: 50px;
+}
+.upper {
+	position: relative;
+	left: 30px;
+}
+.old-price {
+	text-decoration: line-through auto red;
+}
+.new-price {
+	font-size: 20px;
+	color: var(--sky-900);
+	padding-left: 15px;
+	position: relative;
+	top: 150px;
+}
+
+/*
+	------------------ old stuff ---------------------
+*/
+.outline {
+	background-color: var(--slate-200);
+	border-radius: 1rem;
+	max-width: 80%;
+	width: 80%;
+	margin: 1.5rem auto;
+	padding: 2rem;
+	text-align: center;
+	margin-top: 60px;
+}
+
+.move-div-left {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	right: 100px;
+}
+
+.move-div-right {
+	flex: 2;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	left: 100px;
+}
+
+.row {
+	display: flex;
+	text-align: center;
+	justify-content: center;
+}
+
+.main-message {
+	font-weight: bold;
+	font-size: 48px;
+}
+
+.button-test {
+	display: block;
+	background-color: var(--slate-300);
+	text-align: center;
+	width: 270px;
+	height: 60px;
+	border-radius: 0.5rem;
+	line-height: 50px;
+	margin: 10px;
+	padding: 5px;
+}
+
+/*
+	---------------- view specific -----------------
+*/
+
+.arrow-div {
+	width: 400px;
+	height: 200px;
+	position: relative;
+	display: flex;
+}
+.cart-div {
+	width: 500px;
+	height: 250px;
+	position: relative;
+	display: flex;
+}
+
+.image-wrapper {
+	width: 400px;
+	height: 200px;
+	position: relative;
+	display: flex;
+}
+
+.image-miniature {
+	height: 200px;
+}
+
+.product-info {
+	display: flex;
+	position: relative;
+	right: 80px;
+}
+
+.product-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 15px;
+	position:relative;
+	bottom: 15px;
+}
+
+.quantity {
+	position: relative;
+	display: flex;
+	font-weight: 900;
+	font-size: 32px;
+	top: 150px;
+	right: 100px;
+	align-items: baseline;
+}
+.p-name {
+	font-weight: bold;
+	position: relative;
+	top: 50px;
+}
+
+.p-price {
+	position: relative;
+	bottom: 50px;
+}

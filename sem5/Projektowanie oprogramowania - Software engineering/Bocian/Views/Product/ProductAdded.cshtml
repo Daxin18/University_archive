@@ -1,0 +1,46 @@
+﻿@model ProductAddToCartVm
+@{
+    ViewData["Title"] = "Pomyślnie dodano produkt";
+}
+
+<div class="outline">
+    <div class="row">
+        <h1 class="main-message">
+            Dodano produkt do koszyka!
+        </h1>
+    </div>
+    <div class="row">
+        <div class="arrow-div">
+            <img class="image-miniature" src="~/static/img/arrow.png">
+        </div>
+        <div class="quantity">
+            @Model.Quantity x
+        </div>
+    </div>
+    <div class="row">
+        <div class="cart-div">
+            <img class="image-miniature" src="~/static/img/cart.png">
+        </div>
+        <div class="product-info">
+            <img class="image-miniature" src="@Model.ImageUrl" />
+            <div class="product-text">
+                <div class="p-name">
+                    @Model.Product.Name
+                </div>
+                <div class="p-category">
+                    @Model.CategoryName
+                </div>
+                <div class="p-price">
+                    @Model.Product.Price.ToString()zł
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="button-test flex-div-anuluj">
+            <a type="button" asp-controller="Product" asp-action="GoBack">
+                OK
+            </a>
+        </div>
+    </div>
+</div>

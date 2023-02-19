@@ -1,0 +1,97 @@
+﻿.card {
+    padding: 4rem;
+    margin: 8rem;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.title ::deep img {
+    width: 4rem;
+    height: 2rem;
+    margin-right: -2rem;
+}
+
+.title h1 {
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+}
+
+.left-column {
+    flex: 2;
+}
+
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+td, th {
+    vertical-align: top;
+    text-align: left;
+    padding: 0.25rem;
+}
+
+th + td {
+    padding-left: 1rem;
+}
+
+.product-title {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-title div {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+li {
+    display: flex;
+
+    background: var(--slate-300);
+    border-radius: 1rem;
+    box-shadow: 0 4px 4px var(--black-25);
+
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+li section {
+    flex: 1;
+    padding: 1rem;
+}
+
+li section + section {
+    border-left: 0.25rem solid var(--indigo-300);
+}
+
+::deep form {
+    display: contents;
+}

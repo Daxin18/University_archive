@@ -1,0 +1,36 @@
+﻿@{
+var footerLinks = new Dictionary<string, List<string>>
+{
+    ["Informacje"] = new() { "O bocianie", "Kontakt" },
+    ["Dowiedz się więcej"] = new() { "Biuro prasowe", "Nasza odpowiedzialność", "Grupa eBocian" },
+    ["Współpraca"] = new() { "Franczyza", "Zakup lokali", "Wynajem lokali", "Współpraca handlowa", "Zapytania ofertowe", "Pracuj z nami" },
+    ["Dla naszych klientów"] = new() { "Aplikacja eBocian", "Tylko u nas", "Wygodne usługi", "Znajdź sklep" },
+    ["Regulaminy"] = new() { "Regulamin akcji promocyjnych", "Regulamin katalogu alkoholowego", "Regulamin serwisu" }
+};
+}
+
+<footer>
+    <h1>
+        @* RPS/12 *@
+        <img width="80" height="80" alt="Logo" src="~/static/icons/stork.svg" />
+        eBocian
+    </h1>
+    <nav>
+        @foreach (var (header, items) in footerLinks)
+        {
+            <section>
+                <h2>@header</h2>
+                <ul>
+                    @foreach (var item in items)
+                    {
+                        <li><a asp-controller="Home" asp-action="ErrorNotFound">@item</a></li>
+                    }
+                </ul>
+            </section>
+        }
+    </nav>
+    <div>
+        <hr />
+        &copy; @DateTimeOffset.Now.Year eBocian Polska sp. z o.o. Wszelkie prawa zastrzeżone.
+    </div>
+</footer>

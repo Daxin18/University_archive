@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Błąd";
+}
+
+<div class="outline">
+    <div class="row">
+        <h1 class="main-message">
+            Aktualnie posiadasz:
+        </h1>
+    </div>
+    <div class="row">
+        <h1 class="points">
+            @ViewBag.PointsRemaining.ToString()
+        </h1>
+    </div>
+    <div class="row">
+        <h1 class="main-message">
+            Boćków!
+        </h1>
+    </div>
+    <div class="row">
+         <div class="button-test">
+            <a type="button" asp-controller="Loyalty" asp-action="GoBack">
+                OK
+            </a>
+         </div>
+    </div>
+</div>

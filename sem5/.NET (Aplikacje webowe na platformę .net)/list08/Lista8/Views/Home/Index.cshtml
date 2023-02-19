@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>This is the site designed for playing with URL.</p>
+</div>
+
+<h6 class="list">
+    You can append the following things to the URL:
+    <ul>
+        <li><b>/Tool/Solve/a/b/c</b> - tool that solves quadratic equation (ax^2 + bx + c), a,b and c are parameters you pass via URL
+            <ul>
+                <li><a href="/Tool/Solve/0/0/0">Any number (/Tool/Solve/0/0/0)</a></li>
+                <li><a href="/Tool/Solve/1/1/1">No solutions (/Tool/Solve/1/1/1)</a></li>
+                <li><a href="/Tool/Solve/1/2/1">One solution (/Tool/Solve/1/2/1)</a></li>
+                <li><a href="/Tool/Solve/1/2/-3">Two solutions (/Tool/Solve/1/2/-3)</a></li>
+            </ul>
+        </li>
+        <li><b>/Set,n</b> - to set the range from which random number to guess is selected, n is the parameter for range [0-n) and reset all the counters
+            <ul>
+                <li><a href="/Set,10">Set new range to 10 (/Set,10)</a></li>
+                <li><a href="/Set,30">Set new range to 30 (/Set,30)</a></li>
+                <li><a href="/Set,100">Set new range to 100 (/Set,100)</a></li>
+            </ul>
+        </li>
+        <li><b>/Draw</b> - to select the random value and reset all the counters
+            <ul>
+                <li><a href="/Draw">Draw new random value (/Draw)</a></li>
+            </ul>
+        </li>
+        <li><b>/Guess,x</b> - to try to guess the number and receive feedback, x is your guess
+            <ul>
+                <li><a href="/Guess,5">Guess the number as 5 (/Guess,5)</a></li>
+                <li><a href="/Guess,10">Guess the number as 10 (/Guess,10)</a></li>
+                <li><a href="/Guess,15">Guess the number as 15 (/Guess,15)</a></li>
+            </ul>
+        </li>
+    </ul>
+</h6>

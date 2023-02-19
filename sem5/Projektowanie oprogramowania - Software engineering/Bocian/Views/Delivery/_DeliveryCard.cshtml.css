@@ -1,0 +1,39 @@
+﻿.card {
+    padding: 2rem;
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.left-column {
+    flex: 3;
+}
+
+.right-column {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.card > ::deep img {
+    margin: -2rem -2rem -2rem 0;
+}
+
+h3, h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+td, th {
+    vertical-align: top;
+    text-align: left;
+    padding: 0.25rem;
+}
+
+th + td {
+    padding-left: 1rem;
+}

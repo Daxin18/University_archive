@@ -1,0 +1,245 @@
+
+body {
+    background-color: lightgray;
+}
+
+.capybara { /*sama klasa*/
+    background-image: url(kapibara.jpg);
+}
+
+h1.Title {
+    font-size: 50px; /* px */
+    color:blueviolet;
+    background-color: darkslategray;
+    text-align: center;
+    margin-top: 1cm;
+    margin-bottom: 2cm;
+    margin-left: 10cm;
+    margin-right: 10cm;
+    border-radius: 25px;
+}
+
+h1.pt_size{ /*element h1 ktory jest klasy pt_size*/
+    font-size: 30pt;
+    color: #333;
+    font-style: oblique;
+}
+
+ul a.subpage_link { /*elemeny a znajdujace sie w ul, zagniezdzenie*/
+    font-size: 1.5em; /* em */
+}
+
+#back { /*identufikator*/
+    z-index: 9000;
+    color: rgb(0,0,0);
+    background-color: yellow;
+}
+
+div.capybara {
+    width: 10cm;
+    background-position-x: center;
+}
+
+div.scrolling_bg {
+    background-color: lightgray;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+body.capybara{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body > p.gt { /* sel1 > sel2, gdzie sel2 jest danej klasy*/
+    color: darkgreen;
+    font-size: large;
+    font-weight: 700;
+}
+
+.margin {
+    background-color: aqua;
+    margin: 1cm;
+}
+
+.padding{
+    background-color: aqua;
+    border-width: 5px;
+    border-style: dotted;
+    border-color: red;
+    padding: 1cm;
+}
+
+.divSize {
+    width: 200px;
+    height: 50px;
+}
+
+.container{
+    width: 600px;
+    height: 300px;
+    background-color: darkcyan;
+}
+
+.pos_abs {
+    position: absolute;
+    top: 50px;
+    left: 400px;
+    width: 100px;
+    height: 40px;
+    background-color: hotpink;
+}
+
+.pos_rel {
+    padding: 20px;
+    position: relative;
+    bottom: 60px;
+    left: 50px;
+    width: 150px;
+    height: 80px;
+    background-color:chocolate;
+}
+
+.pos_fixed {
+    padding: 20px;
+    position: fixed;
+    bottom: 60px;
+    left: 500px;
+    width: 200px;
+    height: 40px;
+    background-color:maroon;
+}
+
+#float {
+    float: left;
+    width: 50px;
+    height: 50px;
+    background-color:blue;
+    padding: 10px;
+}
+
+table {
+    background-color: lightpink;
+    width: 100%;
+    border: 1px solid;
+}
+
+td {
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    border: 1px dotted red;
+    text-align: center;
+}
+
+th {
+    background-color: cadetblue;
+    width: 40px;
+    height: 40px;
+    border: 1px dashed blue;
+}
+
+a.subpage_link:visited {
+    color: darkslategrey;
+}
+
+p:first-child {
+        border: 2px solid red;
+}
+
+.menu {
+    padding: 15px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
+    color: yellow;
+    font-family:'Times New Roman', Times, serif;   
+    font-weight: 700;
+    position: fixed;
+    height: 40px;
+    width: 200px;
+    background-color: purple;
+    border: 2px solid orange;
+}
+
+div.capybara::first-letter {
+    font-size: 300%;
+    color: red;
+}
+
+a.subpage_link::after {
+    content: '(link)'
+
+}
+
+nav.menu { 
+    position:fixed;
+    right:0px;
+    top:0px;
+    font-weight: bold;
+    color: yellow;
+    border: 3px solid pink;
+    text-align: center;
+    font-size: 30px;
+    width: 10em;
+    background-color:blueviolet; 
+}
+
+nav ul { 
+    display: none;
+    list-style: none;
+    margin-top: 16px;
+    margin-right: 8px;
+    padding: 0; 
+}
+
+nav:hover > ul {
+    display: block;
+}
+
+nav ul.lv1 > li { 
+    border: 3px solid pink;
+    border-top: 0px;
+    background-color:lightcyan;
+    width: 10em;
+    height: 40px;
+    color: black; 
+}
+nav ul li:first-child {
+    border-top: 3px solid pink;
+}
+
+nav ul > li:hover {
+    background-color: aqua; 
+}
+
+a.menu_link {
+    text-decoration: none;
+}
+
+nav.submenu ul { 
+    position:relative;
+    right:209px;
+    bottom: 60px;
+    font-weight: bold;
+    color: yellow;
+    border: 3px solid pink;
+    text-align: center;
+    font-size: 20px;
+    width: 200px;
+    background-color:blueviolet; 
+}
+
+nav ul.lv2 > li { 
+    border: 3px solid pink;
+    border-top: 0px;
+    background-color:bisque;
+    width: 200px;
+    height: 40px;
+    color: black; 
+}
+
+ul.lv2 > li:hover {
+    background-color: aqua; 
+}
+    

@@ -1,0 +1,81 @@
+﻿@model LoyaltyIndexVm
+@{
+    ViewData["Title"] = "Promocje";
+}
+<div class="upper">
+    <div class="placeholder">
+
+    </div>
+    <div class="title">
+        Nasze promocje
+    </div>
+    <div class="points-button button-loyalty">
+        <a class="button-loyalty" asp-controller="Loyalty" asp-action="ShowPoints">
+            Zobacz swoje Boćki
+        </a>
+    </div>
+</div>
+
+<div class="col-md-3">
+    <form>
+        <div class="form-group">
+            <label class="control-label">Kategoria:</label>
+            <select asp-for="SelectedCategoryId" class="form-control" asp-items="Model.Categories" onchange="this.form.submit()">
+                <option selected value="-1">Wszystkie promocje</option>
+            </select>
+        </div>
+    </form>
+</div>
+<div class="products">
+    @foreach ((var Loyalty, var Product, var Image, var Category) in Model.LoyaltySchemes)
+    {
+        <article class="outline">
+            <div class="row">
+                <div class="left-column">
+                    <div class="table-column">
+                        <div class="image-wrapper">
+                            <img class="image-miniature" src="@Image.Url" />
+                        </div>
+                    </div>
+                    <div class="table-column">
+                        <div class="table-row product-name">
+                            @Product.Name
+                        </div>
+                        <div class="table-row">
+                            @Category.Name
+                        </div>
+                        <div class="table-row">
+                            <div class="table-column old-price">
+                                @Product.Price.ToString()zł
+                            </div>
+                            <div class="table-column new-price">
+                                @Loyalty.DiscountPrice.ToString()zł !
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-column">
+                    <div class="row">
+                        <div class="button-test">
+                            <a type="button" asp-controller="Loyalty" asp-action="AddToCart" asp-route-loyaltyId="@Loyalty.Id">
+                                <div class="button-icon">
+                                    <img height="50" src="~/static/img/cart.png" />
+                                </div>
+                                <div class="button-text">
+                                    Dodaj do koszyka
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row point-price">
+                        @Loyalty.PointPrice.ToString() Boćków
+                    </div>
+                </div>
+            </div>
+        </article>
+    }
+</div>
+
+@*===================== Scripts =====================*@
+
+

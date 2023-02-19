@@ -1,0 +1,214 @@
+﻿/*
+ * Full CSS reset, inspired by:
+ * - https://www.joshwcomeau.com/css/custom-css-reset, public domain
+ * - https://github.com/tailwindlabs/tailwindcss, MIT
+ * - https://github.com/hankchizljaw/modern-css-reset, MIT
+ */
+
+/* All elements */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* Root elements */
+html {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeSpeed;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    font-family: sans-serif;
+}
+
+    html:focus-within {
+        scroll-behavior: smooth;
+    }
+
+body {
+    min-height: 100vh;
+    line-height: inherit;
+}
+
+/* Typography */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    overflow-wrap: break-word;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+small,
+sub,
+sup {
+    font-size: 75%;
+}
+
+sub,
+sup {
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+code,
+kbd,
+samp,
+pre {
+    font-family: monospace;
+    font-size: 1em;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+/* Defaults on other elements */
+ol,
+ul,
+menu {
+    list-style: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg,
+iframe {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+    text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+    background-color: transparent;
+    background-image: none;
+    cursor: pointer;
+}
+
+summary {
+    display: list-item;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    opacity: 1;
+    color: #808080;
+}
+
+hr {
+    height: 0;
+    color: inherit;
+    border-top: 1px solid currentColor;
+}
+
+abbr:where([title]) {
+    text-decoration: underline dotted;
+}
+
+table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+}
+
+progress {
+    vertical-align: baseline;
+}
+
+/* Pseudo selectors */
+:disabled {
+    cursor: default;
+}
+
+[type="search"] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px;
+}
+
+:-moz-focusring {
+    outline: auto;
+}
+
+:-moz-ui-invalid {
+    box-shadow: none;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+    height: auto;
+}
+
+::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit;
+}
+
+/* Accessibility media query */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

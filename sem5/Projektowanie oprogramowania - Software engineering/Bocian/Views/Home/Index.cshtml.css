@@ -1,0 +1,23 @@
+﻿.bg {
+    min-height: inherit;
+    background-color: var(--sky-900);
+    background: url("/static/img/hero-bg.png") center center / cover;
+    color: var(--white);
+    padding: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 2.5rem;
+    line-height: 1;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+p {
+    font-size: 2rem;
+    font-style: italic;
+}

@@ -1,0 +1,143 @@
+﻿@using Bocian.Models
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model DeliveryDetailsVm
+@{
+    ViewData["Title"] = $"Zamówienie nr {Model.Id}";
+}
+
+<div class="card">
+    <div class="title">
+        <a asp-action="Index"><img alt="Wróć" src="~/static/icons/back.svg" /></a>
+        <h1>Zamówienie nr @Html.DisplayFor(m => m.Id)</h1>
+    </div>
+    <div class="row">
+        <div class="left-column">
+            <table>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.OrderedAt):</th>
+                    <td>@Html.DisplayFor(m => m.OrderedAt)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.EmployeeShopAddressSummary):</th>
+                    <td>@Html.DisplayFor(m => m.EmployeeShopAddressSummary)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.ClientFullName):</th>
+                    <td>
+                        <div>@Html.DisplayFor(m => m.ClientFullName)</div>
+                        <div>@Html.DisplayFor(m => m.AddressSummary)</div>
+                        @if (Model.ClientPhoneNumber is not null)
+                        {
+                            <div>tel. @Html.DisplayFor(m => m.ClientPhoneNumber)</div>
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.CartTotalWeight):</th>
+                    <td>@Html.DisplayFor(m => m.CartTotalWeight)</td>
+                </tr>
+            </table>
+        </div>
+        <div class="right-column">
+            <h2>@Html.DisplayNameFor(m => m.Status): <span class="status" data-status="@Model.Status">@Html.DisplayFor(m => m.Status)</span></h2>
+            @switch (Model.Status)
+            {
+                case OrderStatus.Packed:
+                    <form asp-action="Deliver" asp-route-id="@Model.Id"><input type="submit" value="Oznacz jako dostarczane" class="button button-success" /></form>
+                    break;
+                case OrderStatus.InDelivery:
+                    <form asp-action="Complete" asp-route-id="@Model.Id"><input type="submit" value="Oznacz jako zrealizowane" class="button button-success" /></form>
+                    <button id="shipping-list-button" class="button">Generuj list przewozowy</button>
+                    break;
+            }
+        </div>
+    </div>
+    <img class="map" src="~/static/img/map.png" alt="Mapa" />
+</div>
+@section Scripts
+{
+    <dialog id="shipping-list-dialog">
+        <table class="shipping">
+            <thead>
+                <tr>
+                    <td colspan="3">
+                        <small>Nadawca</small>
+                        <section>
+                            <div>Sklep Bocian</div>
+                            <div>@Html.DisplayFor(m => m.EmployeeShopAddressSummary)</div>
+                        </section>
+                    </td>
+                    <th colspan="3">Krajowy list przewozowy</th>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <small>Odbiorca</small>
+                        <section>
+                            <div>@Html.DisplayFor(m => m.ClientFullName)</div>
+                            <div>@Html.DisplayFor(m => m.AddressSummary)</div>
+                        </section>
+                    </td>
+                    <td colspan="3">
+                        <small>Przewoźnik</small>
+                        <section>
+                            <div>@Html.DisplayFor(m => m.DeliveryCourierFullName)</div>
+                            <div>(@Html.DisplayFor(m => m.DeliveryCourierTransportationTypeName))</div>
+                        </section>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4">
+                        <small>Ładunek</small>
+                        <section>
+                            @foreach (var item in Model.CartItems)
+                            {
+                                <div>@Html.DisplayFor(_ => item.ProductName) - @Html.DisplayFor(_ => item.ItemCount)</div>
+                            }
+                        </section>
+                    </td>
+                    <td>
+                        <small>Nr ewidencyjny</small>
+                        <section>@Html.DisplayFor(m => m.TrackingNumber)</section>
+                    </td>
+                    <td>
+                        <small>Waga brutto</small>
+                        <section>@Html.DisplayFor(m => m.CartTotalWeight)</section>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">
+                        <small>Podpis nadawcy</small>
+                        <br />
+                    </td>
+                    <td colspan="2">
+                        <small>Podpis przewoźnika</small>
+                        <br />
+                    </td>
+                    <td colspan="2">
+                        <small>Podpis odbiorcy</small>
+                        <br />
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="button-group">
+            <button class="button" id="shipping-list-print">Drukuj...</button>
+            <form method="dialog">
+                <button class="button">Ok</button>
+            </form>
+        </div>
+    </dialog>
+    <script>
+        document.getElementById("shipping-list-button")?.addEventListener("click", () => {
+            document.getElementById("shipping-list-dialog").showModal();
+        });
+        
+        document.getElementById("shipping-list-print")?.addEventListener("click", () => {
+            window.print();
+        });
+    </script>
+}

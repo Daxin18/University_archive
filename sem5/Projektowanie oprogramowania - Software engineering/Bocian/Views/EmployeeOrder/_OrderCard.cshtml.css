@@ -1,0 +1,49 @@
+﻿.card {
+    max-width: 75%;
+    margin: 1.5rem auto;
+    padding: 2rem;
+}
+
+::deep header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+h3, h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.row {
+    display: flex;
+}
+
+.left-column {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.summary {
+    font-weight: bold;
+}
+
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+}
+
+td, th {
+    vertical-align: top;
+    text-align: left;
+    padding: 0.25rem;
+}
+
+th + td {
+    padding-left: 1rem;
+}

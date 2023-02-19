@@ -1,0 +1,120 @@
+﻿.card {
+    padding: 4rem;
+    margin: 8rem;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.title ::deep img {
+    width: 4rem;
+    height: 2rem;
+    margin-right: -2rem;
+}
+
+.title h1 {
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+}
+
+.left-column {
+    flex: 2;
+}
+
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+.card td, .card th {
+    vertical-align: top;
+    text-align: left;
+    padding: 0.25rem;
+}
+
+.card th + td {
+    padding-left: 1rem;
+}
+
+::deep form {
+    display: contents;
+}
+
+::deep .map {
+    width: calc(100% + 8rem);
+    max-width: initial;
+    height: auto;
+    margin: 6rem -4rem -4rem -4rem;
+}
+
+dialog {
+    padding: 2rem;
+    background: var(--slate-200);
+    border-radius: 1rem;
+    box-shadow: 0 4px 4px var(--black-25);
+    margin: auto;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.shipping {
+    background: var(--white);
+    border: 2px solid var(--black);
+}
+
+.shipping td {
+    padding: 0.75rem 1.25rem;
+    border: 2px solid var(--black);
+    vertical-align: top;
+    text-align: left;
+}
+
+.shipping th {
+    vertical-align: center;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+}
+
+.shipping small {
+    font-size: 0.6rem;
+    font-weight: bold;
+    margin: -0.5rem 0 0.1rem -0.75rem;
+    display: block;
+}
+
+.shipping section {
+    text-transform: uppercase;
+    font-family: monospace;
+    font-size: 0.75rem;
+}
+
+.button-group {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+}

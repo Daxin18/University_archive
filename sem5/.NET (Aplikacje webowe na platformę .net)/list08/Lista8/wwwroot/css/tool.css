@@ -1,0 +1,21 @@
+﻿.no {
+    color: red;
+    font-weight: 200;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: underline;
+}
+
+.one {
+    color:cornflowerblue;
+    font-weight: 400;
+}
+
+.two {
+    color:darkslateblue;
+    font-weight: 400;
+}
+
+.any-number {
+    color: greenyellow;
+    font-family: cursive;
+}

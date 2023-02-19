@@ -1,0 +1,59 @@
+﻿@page
+@model Lista12.Pages.Shop.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div class="col-md-3">
+    <form>
+        <div class="form-group">
+            <label class="control-label"></label>
+            <select asp-for="selectedCategoryId" class="form-control" asp-items="Model.categories" onchange="this.form.submit()">
+                <option disabled selected value="">Select category</option>
+            </select>
+        </div>
+    </form>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.articles.Last().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.articles.Last().Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.articles.Last().Category)
+            </th>
+            <th>
+                Image
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.articles)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+                <td>
+                    <dd class="col-sm-10">
+                        <img src="@(item.Image)" asp-append-version="true" width="50" />
+                    </dd>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,60 @@
+﻿@using Bocian.Models
+@model EmployeeOrderDetailsVm
+@{
+    ViewData["Title"] = $"Zamówienie nr {Model.Id}";
+}
+
+<div class="card">
+    <div class="title">
+        <a asp-action="Index"><img alt="Wróć" src="~/static/icons/back.svg" /></a>
+        <h1>Zamówienie nr @Html.DisplayFor(m => m.Id)</h1>
+    </div>
+    <div class="row">
+        <div class="left-column">
+            <table>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.OrderedAt):</th>
+                    <td>@Html.DisplayFor(m => m.OrderedAt)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.ClientFullName):</th>
+                    <td>
+                        <div>@Html.DisplayFor(m => m.ClientFullName)</div>
+                        <div>@Html.DisplayFor(m => m.AddressSummary)</div>
+                        @if (Model.ClientPhoneNumber is not null)
+                        {
+                            <div>tel. @Html.DisplayFor(m => m.ClientPhoneNumber)</div>
+                        }
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="right-column">
+            <h2>@Html.DisplayNameFor(m => m.Status): <span class="status" data-status="@Model.Status">@Html.DisplayFor(m => m.Status)</span></h2>
+            @switch (Model.Status)
+            {
+                case OrderStatus.Pending:
+                    <form asp-action="Confirm" asp-route-id="@Model.Id"><input type="submit" value="Zatwierdź" class="button button-success" /></form>
+                    <form asp-action="Cancel" asp-route-id="@Model.Id"><input type="submit" value="Anuluj" class="button button-danger" /></form>
+                    break;
+                case OrderStatus.Confirmed:
+                    <form asp-action="Pack" asp-route-id="@Model.Id"><input type="submit" value="Oznacz jako spakowane" class="button button-success" /></form>
+                    break;
+            }
+        </div>
+    </div>
+    <div class="product-title">
+        <h2>@Html.DisplayNameFor(m => m.CartItems):</h2>
+        <div>@Html.DisplayNameFor(m => m.CartTotalPrice): @Html.DisplayFor(m => m.CartTotalPrice)</div>
+    </div>
+    <ul>
+        @foreach (var item in Model.CartItems)
+        {
+            <li>
+                <section>@Html.DisplayFor(_ => item.ProductName)</section>
+                <section>@Html.DisplayFor(_ => item.ItemCount)</section>
+                <section>@Html.DisplayFor(_ => item.Price)</section>
+            </li>
+        }
+    </ul>
+</div>

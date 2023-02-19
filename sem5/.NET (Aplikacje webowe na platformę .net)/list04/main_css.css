@@ -1,0 +1,40 @@
+.even {
+    background-color: lemonchiffon;
+}
+
+.odd {
+    background-color: aqua;
+}
+
+th {
+    background-color: yellow;
+}
+
+table, td, th {
+    border: solid 2px darkred;
+}
+
+#error-message {
+    color: red;
+}
+
+canvas {
+    border: solid 3px darksalmon;
+    background-color: white;
+}
+
+.css-size-canvas {
+    width: 1000px;
+    height: 400px;
+}
+
+.canv2 {
+    width: 100px;
+    height: 250px;
+}
+
+.fixedCanv {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}

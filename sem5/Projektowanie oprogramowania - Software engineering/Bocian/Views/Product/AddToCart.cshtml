@@ -1,0 +1,106 @@
+﻿@model ProductAddToCartVm
+@{
+    ViewData["Title"] = "Dodanie produktu do koszyka";
+}
+
+<div class="title">
+    <h1 class="title">
+        Dodaj produkt do koszyka
+    </h1>
+</div>
+
+<div class="outline">
+    <div class="row">
+        <div class="left-column">
+            <table>
+                <tr>
+                    <td rowspan="3" class="image-wrapper">
+                        <img class="image-miniature" src="@Model.ImageUrl" />
+                    </td>
+                    <th class="product-name">
+                        @Model.Product.Name
+                    </th>
+                </tr>
+                <tr>
+                    <td class="product-category">
+                        @Model.CategoryName
+                    </td>
+                </tr>
+                <tr>
+                    <td class="product-price">
+                        @Model.Product.Price.ToString()zł
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="right-column">
+            <table>
+                <tr>
+                    <td rowspan="2" class="fav-image-wrapper">
+                        @if (Model.IsInFavorites)
+                        {
+                            <img src="~/static/img/favorite.png">
+                        }
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <table>
+            <tr>
+                <th class="description-text">
+                    Opis:
+                </th>
+            </tr>
+            <tr>
+                <td class="description">
+                    @Model.Product.Description
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="row">
+        <table>
+            <tr>
+                <td>
+                    <div class="button-test flex-div-anuluj">
+                        <a type="button" asp-controller="Product" asp-action="GoBack">
+                            Anuluj
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <form enctype="multipart/form-data" asp-action="AddToCarts">
+                        <div class="form-group flex-div-amount">
+                            Ilość:
+                            <input asp-for="Quantity" class="form-control" />
+                            <span asp-validation-for="Quantity" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input hidden asp-for="Product" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input hidden asp-for="ImageUrl" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input hidden asp-for="CategoryName" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input hidden asp-for="IsInFavorites" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input hidden asp-for="CartId" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input hidden asp-for="ProductId" class="form-control" />
+                        </div>
+                        <div class="form-group button-test flex-div-next">
+                            <input type="submit" value="Potwierdź" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
