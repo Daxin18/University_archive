@@ -1,0 +1,97 @@
+package pack;
+
+public class Zadanie4<T> implements IStack<T>
+{
+	private static final int def_size = 8;
+	private T[] tab;
+	private int index;	
+	
+	//konstruktory
+	@SuppressWarnings("unchecked")
+	public Zadanie4()
+	{
+		this.tab = (T[]) (new Object[def_size]);
+		this.index = 0;
+	}
+	@SuppressWarnings("unchecked")
+	public Zadanie4(int size)
+	{
+		this.tab = (T[]) (new Object[size]);
+		this.index = 0;
+	}
+	
+	//metody
+	public boolean isFull()
+	{
+		return (index == tab.length); 
+	}
+	public boolean isEmpty()
+	{
+		return (index == 0);
+	}
+	@SuppressWarnings("unchecked")
+	public T pop() throws EmptyStackException
+	{
+		if(isEmpty())
+			throw new EmptyStackException();
+		else
+		{
+			T X = tab[--index];
+			if((double)index <= (double)(tab.length/4))
+			{
+				T[] temp;
+				if ((tab.length/2)%2==0)
+					temp = (T[]) (new Object[tab.length/2]);
+				else
+					temp = (T[]) (new Object[(tab.length/2)+1]);
+				
+				for(int i=0; i<index; i++)
+				{
+					temp[i] = tab[i];
+				}
+				tab = temp;
+			}
+			return X;
+		}
+	}
+	@SuppressWarnings("unchecked")
+	public void push(T el) throws FullStackException
+	{
+		if(isFull())
+			throw new FullStackException();
+		else
+		{
+			tab[index++] = el;
+			if((double)index >= (double)(3*tab.length/4))
+			{
+				T[] temp = (T[]) (new Object[2*tab.length]);
+				for(int i=0; i<index; i++)
+				{
+					temp[i] = tab[i];
+				}
+				tab = temp;
+			}
+		}
+	}
+	public int elements()
+	{
+		return index;
+	}
+	public T top() throws EmptyStackException
+	{
+		if (isEmpty())
+			throw new EmptyStackException();
+		else
+			return tab[index-1];
+	}
+	public void showStack()
+	{
+		for(int i=index-1; i>=0; i--)
+			System.out.println(tab[i]);
+	}
+	public int stackSize()
+	{
+		return tab.length;
+	}
+	
+}
